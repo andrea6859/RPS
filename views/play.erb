@@ -6,5 +6,13 @@
   <input type="submit" name="weapon" value="Scissors" />
 </form>
 
-You chose <%= @game.player_weapon %>
-Computer chooses <%= @game.computer_weapon %>
+You chose <%= @game.player_weapon %>!
+Computer chooses <%= @game.computer_weapon %>!
+
+<% if @game.win? %>
+You win!
+<% elsif @game.lose? %>
+You lose!
+<% elsif @game.draw? %>
+You Draw!
+<% end %>
