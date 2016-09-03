@@ -1,8 +1,9 @@
 require 'spec_helper'
 
-PLAY_SEED = 123456
-
 feature 'play game' do
+
+  PLAY_SEED = 123456
+
   scenario 'choose rock, paper, scissors' do
     sign_in_and_submit_name
     click_button 'Rock'
@@ -20,21 +21,21 @@ feature 'play game' do
   scenario 'I win' do
     sign_in_and_submit_name
     srand(PLAY_SEED)
-    click_button 'scissors'
+    click_button 'Scissors'
     expect(page).to have_content "You win!"
   end
 
   scenario 'I lose' do
     sign_in_and_submit_name
     srand(PLAY_SEED)
-    click_button 'rock'
+    click_button 'Rock'
     expect(page).to have_content "You lose!"
   end
 
   scenario 'Draw' do
     sign_in_and_submit_name
     srand(PLAY_SEED)
-    click_button 'paper'
+    click_button 'Paper'
     expect(page).to have_content "Draw!"
   end
 
