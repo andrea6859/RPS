@@ -14,14 +14,12 @@ class RPS < Sinatra::Base
   end
 
   get '/play' do
-    @name = session[:name]
-    @weapon = session[:weapon]
-    @computer_weapon = session[:computer_weapon]
+    @game = Game.new(session)
     erb :play
   end
 
   post '/play' do
-   session[:weapon] = params[:weapon]
+   session[:player_weapon] = params[:player_weapon]
    session[:computer_weapon] = Computer.new.weapon
    redirect '/play'
  end
